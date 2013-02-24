@@ -7,6 +7,10 @@ import sys
 from settings import *
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy import Table, Column, Integer, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 groups_to_users_table = Table('groups_to_users', Base.metadata,
     Column('group_id', Integer, ForeignKey('group.id')),
